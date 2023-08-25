@@ -1,4 +1,4 @@
-provider "aws" {
+provider = "aws" {
   region = "ap-south-1"
   access_key= "ACCESS_KEY_ID"
   secret_key= "SECRET_AECCESS_KEY"
