@@ -10,8 +10,5 @@ resource "aws_lambda_function" "my_function" {
     handler = "index.handler"
     code = "lambda_function.zip"
     timeout = 300
-
-tags = {
-    Name = "my_function"
-  }
+    filename     = "lambda_function.zip"
 }
