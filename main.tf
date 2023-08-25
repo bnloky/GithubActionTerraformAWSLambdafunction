@@ -6,8 +6,8 @@ provider "aws" {
 
 data "archive_file" "lambda_function_archive" {
   type        = "zip"
-  source_dir  =  "./automation.py"  # Path to the directory containing your Lambda function code
-  output_path = "./automation.py.zip"   # Path where you want to save the generated zip archive
+  source_dir  =  "./../automation.py"  # Path to the directory containing your Lambda function code
+  output_path = "./../automation.py.zip"   # Path where you want to save the generated zip archive
 }
 
 
