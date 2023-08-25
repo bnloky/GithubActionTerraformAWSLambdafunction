@@ -17,7 +17,6 @@ resource "aws_lambda_function" "my_function" {
     function_name = "my_lambda_function"
     runtime = "python3.8"
     handler = "index.handler"
-    code = "lambda_function.zip"
     timeout = 300
     filename     = "lambda_function.zip"
 }
