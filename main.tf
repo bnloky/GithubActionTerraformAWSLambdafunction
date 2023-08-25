@@ -13,7 +13,7 @@ data "archive_file" "lambda_function_archive" {
 
 
 resource "aws_lambda_function" "my_function" {
-    role = "arn:aws:iam:681217613251:role/loky"
+    role = "arn:aws:iam::681217613251:role/my-lambda-role"
     function_name = "my_lambda_function"
     runtime = "python3.8"
     handler = "index.handler"
