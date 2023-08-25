@@ -5,9 +5,11 @@ provider "aws" {
 }
 
 resource "aws_lambda_function" "my_function" {
-    name = "my_function"
     runtime = "python3.8"
     handler = "index.handler"
     code = "lambda_function.zip"
     timeout = 300
+tags = {
+    Name = "my_function"
   }
+}
