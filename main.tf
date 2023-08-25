@@ -12,8 +12,8 @@ resource "aws_lambda_function" "my_function" {
     timeout = 300
     filename     = "lambda_function.zip"
 
-filename = data.archive_file.lambda_function_archive.output_path
-  source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.output_path)
+filename = data.archive_file.my_lambda_function_archive.output_path
+  source_code_hash = filebase64sha256(data.archive_file.my_lambda_function_archive.output_path)
 
 }
 
