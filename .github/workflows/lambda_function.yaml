@@ -39,6 +39,7 @@ jobs:
       env:
         TF_INPUT: 0  # To avoid the need for user input during apply
 
+
     - name: Show outputs
       run: terraform output -json
       working-directory: ./terraform
