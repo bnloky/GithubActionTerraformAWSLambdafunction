@@ -17,6 +17,14 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 1.0.4  # Use the version of Terraform you want
+ 
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: AKIAZ5G533XB2UMZCQ35
+        aws-secret-access-key: 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
+        aws-region: ap-south-1  # Adjust the region as needed
+
 
    
     - name: Initialize Terraform
