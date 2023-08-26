@@ -1,22 +1,44 @@
-name: createlambdafunction
+name: Create Lambda Function
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v1
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.0.4  # Use the version of Terraform you want
 
-      - name: Configure Terraform
-        run: terraform init
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1  # Adjust the region as needed
 
-      - name: Create Lambda function
-        run: terraform apply -auto-approve
+    - name: Initialize Terraform
+      run: terraform init
+      working-directory: ./terraform
+
+    - name: Plan Terraform changes
+      run: terraform plan -out=tfplan
+      working-directory: ./terraform
+
+    - name: Apply Terraform changes
+      run: terraform apply tfplan
+      working-directory: ./terraform
+      env:
+        TF_INPUT: 0  # To avoid the need for user input during apply
+
+    - name: Show outputs
+      run: terraform output -json
+      working-directory: ./terraform
