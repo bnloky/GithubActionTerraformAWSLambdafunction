@@ -10,15 +10,14 @@ resource "aws_lambda_function" "my_function" {
     runtime = "python3.8"
     handler = "index.handler"
     timeout = 300
-    filename     = "lambda_function.zip"
 
-filename = data.archive_file.my_lambda_function_archive.output_path
-  source_code_hash = filebase64sha256(data.archive_file.my_lambda_function_archive.output_path)
+filename = data.archive_file.lambda_function_archive.output_path
+source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.output_path)
 
 }
 
 data "archive_file" "lambda_function_archive" {
   type        = "zip"
-  source_dir  =  "./../automation.py"  # Path to the directory containing your Lambda function code
-  output_path = "./../automation.py.zip"   # Path where you want to save the generated zip archive
+  source_dir  =  "./automation.py"  # Path to the directory containing your Lambda function code
+  output_path = "./automation.py.zip"   # Path where you want to save the generated zip archive
 }
