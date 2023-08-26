@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "my_function" {
-    role = "arn:aws:iam::681217613251:role/my-lambda-role"
+    role = "arn:aws:iam::681217613251:role/mylambdafunction"
     function_name = "my_lambda_function"
     runtime = "python3.8"
     handler = "index.handler"
