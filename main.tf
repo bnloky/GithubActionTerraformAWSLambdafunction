@@ -1,3 +1,9 @@
+provider "aws"  {
+region = "ap-south-1"
+access_key = "AKIAZ5G533XB2UMZCQ35"
+  secret_key = "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"
+}
+
 resource "aws_lambda_function" "my_function" {
     role = "arn:aws:iam::681217613251:role/My_Lambda_Function"
     function_name = "my_lambda_function"
