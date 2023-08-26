@@ -17,7 +17,7 @@ resource "aws_lambda_function" "my_function" {
     handler = "index.handler"
     timeout = 300
     filename = data.archive_file.lambda_function_archive.output_path
-    source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.output_path
+    source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.output_path)
 }
 
 data "archive_file" "lambda_function_archive" {
