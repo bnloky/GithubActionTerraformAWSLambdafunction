@@ -4,4 +4,4 @@ creating the pipeline  for automatically   deploy the lambda function in aws clo
 Prerequisites :
 Githubaccount
 Aws account
-Iam user
+
