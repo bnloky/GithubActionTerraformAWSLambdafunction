@@ -18,6 +18,6 @@ source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.ou
 
 data "archive_file" "lambda_function_archive" {
   type        = "zip"
-  source_dir  =  "./../lambdafunction"  # Path to the directory containing your Lambda function code
-  output_path = "./../lambdafunction.zip"   # Path where you want to save the generated zip archive
+  source_dir  =  "./lambdafunction"  # Path to the directory containing your Lambda function code
+  output_path = "./lambdafunction.zip"   # Path where you want to save the generated zip archive
 }
