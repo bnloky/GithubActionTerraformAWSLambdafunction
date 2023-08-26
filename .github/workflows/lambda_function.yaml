@@ -3,7 +3,7 @@ name: Create Lambda Function
 on:
   push:
     branches:
-      - main  # Adjust the branch name as needed
+      - staging  # Adjust the branch name as needed
 
 jobs:
   build:
