@@ -1,7 +1,13 @@
 provider "aws"  {
 region = "ap-south-1"
-access_key = "Access_Key_Id"
-  secret_key = "Secret_Access_Key"
+}
+
+terraform {
+  backend "s3" {
+    bucket = "terraformbackedstatefilestore"
+    key    = "tffiles.tfstate"
+    region = "ap-south-1"
+  }
 }
 
 resource "aws_lambda_function" "my_function" {
@@ -18,6 +24,6 @@ source_code_hash = filebase64sha256(data.archive_file.lambda_function_archive.ou
 
 data "archive_file" "lambda_function_archive" {
   type        = "zip"
-  source_dir  =  "./../lambdafunction"  # Path to the directory containing your Lambda function code
-  output_path = "./../lambdafunction.zip"   # Path where you want to save the generated zip archive
+  source_dir  =  "./lambdafunction"  # Path to the directory containing your Lambda function code
+  output_path = "./lambdafunction.zip"   # Path where you want to save the generated zip archive
 }
